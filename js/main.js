@@ -5,8 +5,10 @@ const dateTime=document.getElementById("dateTime");
 let transaction_list=document.getElementById("trans-list")
 function handleFormSubmit(event) {
     event.preventDefault();
+
     let newDate=new Date(dateTime.value);
-    let textDate=newDate.getDate()+"-"+newDate.getMonth()+"-"+newDate.getFullYear();
+    let textDate=newDate.getDate()+"-"+newDate.getMonth()+"-"+newDate.getFullYear()+", "+newDate.getHours()+"-"+ newDate.getMinutes();
+    
 
     transaction_list.appendChild(newTransaction(source.value, amount.value, textDate))
 }
@@ -16,18 +18,18 @@ function newTransaction(tname, tamt, textDate) {
     const TransactionItem=document.createElement("div");
     TransactionItem.className="trans-item";
     // p element inside item
-    const newTransaction=document.createElement("p");
+    const newTransaction=document.createElement("div");
     newTransaction.className="item-name";
     const nameTextNode=document.createTextNode(tname);
     newTransaction.appendChild(nameTextNode);
     // amount element span
-    const amount=document.createElement("span");
+    const amount=document.createElement("div");
     amount.className="amount debit";
     const amountTextNode=document.createTextNode(tamt);
     amount.appendChild(amountTextNode);
     
     // date element span
-    const TDate=document.createElement("span");
+    const TDate=document.createElement("div");
     TDate.className="trans-date";
     const dateTextNode=document.createTextNode(textDate);
     TDate.appendChild(dateTextNode);
