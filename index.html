@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
 </head>
+
 <body>
     <h1>Expense Tracker</h1>
+    <form onsubmit="handleFormSubmit(event)">
+        <label for="new-source">Source</label>
+        <input type="text" name="source" id="new-source" placeholder="source of amount">
+
+        <label for="new-amount"></label>
+        <input type="number" name="amount" id="new-amount" placeholder="amount $$$">
+
+
+        <button type="reset">Reset</button>
+        <button type="submit">Add Transaction</button>
+    </form>
+
+
+    <div id="trans-list">
+        <!-- all transaction item go here -->
+    </div>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
