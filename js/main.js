@@ -5,26 +5,27 @@ const dateTime=document.getElementById("dateTime");
 let transaction_list=document.getElementById("trans-list")
 function handleFormSubmit(event) {
     event.preventDefault();
-
+    
     let newDate=new Date(dateTime.value);
     let textDate=newDate.getDate()+"-"+newDate.getMonth()+"-"+newDate.getFullYear()+", "+newDate.getHours()+"-"+ newDate.getMinutes();
     
+    const selected = document.querySelector('input[name="ttype"]:checked');
 
-    transaction_list.appendChild(newTransaction(source.value, amount.value, textDate))
+    transaction_list.appendChild(newTransaction(source.value, amount.value, selected.id, textDate))
 }
  
-function newTransaction(tname, tamt, textDate) {
+function newTransaction(tname, tamt, ttype, textDate) {
     // empty transaction item
     const TransactionItem=document.createElement("div");
     TransactionItem.className="trans-item";
     // p element inside item
-    const newTransaction=document.createElement("div");
-    newTransaction.className="item-name";
+    const itemName=document.createElement("div");
+    itemName.className="item-name";
     const nameTextNode=document.createTextNode(tname);
-    newTransaction.appendChild(nameTextNode);
+    itemName.appendChild(nameTextNode);
     // amount element span
     const amount=document.createElement("div");
-    amount.className="amount debit";
+    amount.className="amount"+" "+ttype;
     const amountTextNode=document.createTextNode(tamt);
     amount.appendChild(amountTextNode);
     
@@ -34,20 +35,21 @@ function newTransaction(tname, tamt, textDate) {
     const dateTextNode=document.createTextNode(textDate);
     TDate.appendChild(dateTextNode);
 
-    newTransaction.appendChild(amount);
-    newTransaction.appendChild(TDate);
+    TransactionItem.appendChild(itemName);
+    TransactionItem.appendChild(amount);
+    TransactionItem.appendChild(TDate);
 
 
-    TransactionItem.appendChild(newTransaction);
     return TransactionItem;
 
 
     /*  
         <div class="trans-item">
-            <p class="item-name">tname 
-                <span class="amount debit">tamt</span>
-                <span class="trans-date">textDate</span>
-            </p>
+            <div class="item-name">tname 
+                <div class="amount ttype">tamt</div>
+                <div class="trans-date">textDate</div>
+            </div>
         </div> 
+        
     */
 }
