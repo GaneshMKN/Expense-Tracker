@@ -1,7 +1,50 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#product-name {
+    font-size:4rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#stats {
+    color:black;
+    background-color: beige;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-wrap: wrap;
+    width:80%;   
+}
+
+#balance-block {
+    width:100%;
+    background-color: yellow;
+}
+
+#income-block, #expense-block{
+    width:50%;
+}
+#income, #expense, #balance {
+    font-size:2rem;
+}
+
+
 .debit {
     color:red;
 }
 
 .credit {
     color:greenyellow;
+}
+
+#trans-list {
+}
+#form {
+    background-color: burlywood;
+    font-size:1.2rem;
+    display:flex;
+    flex-direction: column;
 }

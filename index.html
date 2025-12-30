@@ -9,9 +9,21 @@
 </head>
 
 <body>
-    <h1>Expense Tracker</h1>
-    <form onsubmit="handleFormSubmit(event)">
-        <label for="new-source">Source</label>
+    <div id="greeting-message">Hello</div>
+    <h1 id="product-name">Ganesh Nagtilak</h1>
+    <div id="stats">
+        <div id="balance-block">Total Balance
+            <div id="balance">0</div>
+        </div>
+        <div id="income-block">Income
+            <div id="income">0</div>
+        </div>
+        <div id="expense-block"> Expenses
+            <div id="expense">0</div>
+        </div>
+    </div>
+    <form onsubmit="handleFormSubmit(event)" id="form">
+        <!-- <label for="new-source">Source</label> -->
         <input type="text" name="source" id="new-source" placeholder="source of amount">
 
         <label for="new-amount"></label>
@@ -19,19 +31,25 @@
 
         <input type="datetime-local" name="date-time" id="dateTime">
 
-        <input type="radio" name="ttype" id="debit">
-        <label for="debit">Debit</label>
-        <input type="radio" name="ttype" id="credit">
-        <label for="credit">Credit</label>
+        <div>
+            <label for="debit">Debit</label>
+            <input type="radio" name="ttype" id="debit">
+        </div>
+        <div>
+            <label for="credit">Credit</label>
+            <input type="radio" name="ttype" id="credit">
+        </div>
 
-
-        <button type="reset">Reset</button>
-        <button type="submit">Add Transaction</button>
+        <div>
+            <button type="reset">Reset Fields</button>
+            <button type="submit">Add Transaction</button>
+        </div>
     </form>
 
 
     <div id="trans-list">
         <!-- all transaction item go here -->
+         
     </div>
     <script src="js/main.js"></script>
 </body>
